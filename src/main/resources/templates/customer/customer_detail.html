@@ -1,0 +1,29 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Getting Started: Serving Web Content</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+
+	<div class="row">
+		<div th:if="${customer}">
+			<h1>Customer</h1>
+			<ul th:object="${customer}">
+				<li th:text="*{firstName}"></li>
+				<li th:text="*{lastName}"></li>
+				<li th:text="*{email}"></li>
+				<li th:text="*{phoneNumber}"></li>
+			</ul>
+			<a class="btn btn-default" href="/"
+				th:href="@{|/customer/${customer.id}/edit|}">Edit</a> <a
+				class="btn btn-default" href="/">Back</a>
+		</div>
+		<div th:unless="${customer}">
+			<h1>Customer Not Found</h1>
+		</div>
+	</div>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Transaction Details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<div class="row">
+	
+	
+	<!-- NOTE: THIS ISN'T DONE YET -->
+		<form method="POST" th:object="${transaction}">
+			<div class="form-group">
+	    		<label for="customer.lastName">Customer</label>
+	   			<input type="text" name="customer" class="form-control" placeholder="Customer" th:field="*{customer.lastName}" />
+	  			<span th:if="${#fields.hasErrors('customer.lastName')}" th:errors="*{customer.lastName}">Last Name</span>
+	  		</div>
+         </form>
+	</div>
+</body>
+</html>

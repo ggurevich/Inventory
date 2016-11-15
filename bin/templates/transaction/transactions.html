@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Transaction Details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<div class="row">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>UPC</th>
+					<th>Customer Last Name</th>
+					<th>Email</th>
+					<th>Product Name</th>
+					<th>Product Price</th>
+					
+					
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+					<th>&nbsp;</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="t : ${transactions}">
+					<td th:text="${t.product.upc}"></td>
+ 					<td th:text="${t.customer.lastName}"></td>
+					<td th:text="${t.customer.email}"></td>
+					<td th:text="${t.product.productName}"></td>
+					<td th:text="${t.product.productPrice}"></td> 
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+</html>

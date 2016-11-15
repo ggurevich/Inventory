@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Products</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<h1>Products</h1>
+	<a class="btn btn-success" href="/" th:href="@{|/product/create|}" role="button">Create New Product</a>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>UPC</th>
+				<th>Product Name</th>
+				<th>Price</th>
+				<th>Manufacturer</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="p : ${products}">
+				<td th:text="${p.upc}"></td>
+				<td th:text="${p.productName}"></td>
+				<td th:text="${p.productPrice}"></td>
+				<td th:text="${p.productManufacturer}"></td>
+				<td><a class="btn btn-primary" href="/" th:href="@{|/product/${p.id}}" role="button">View</a></td>
+				<td><a class="btn btn-success" href="/" th:href="@{|/product/${p.id}/edit|}" role="button">Edit</a></td>
+				<td><a class="btn btn-info" href="/" th:href="@{|/product/${p.id}/delete|}" role="button">Delete</a></td>
+
+			</tr>
+		</tbody>
+	</table>
+	<a href="/">Back</a>
+</body>
+</html>
