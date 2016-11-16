@@ -1,0 +1,73 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Penultimo Inventory</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
+</head>
+<body layout:fragment="content">
+
+	<div class="row">
+
+		<h1>Edit Transaction</h1>
+
+		<form method="POST" th:object="${transaction}"
+			enctype="multipart/form-data">
+			<input type="hidden" th:field="*{id}" />
+
+			<div class="form-group">
+				<label for="customer.firstName">customer Name</label> <input
+					type="text" name="customer.firstName" class="form-control"
+					placeholder="Customer First Name" th:field="*{customer.firstName}" />
+				<span th:if="${#fields.hasErrors('customer.firstName')}"
+					th:errors="*{customer.firstName}}">Customer First Name Error</span>
+			</div>
+
+			<div class="form-group">
+				<label for="customer.lastName">Customer Name</label> <input
+					type="text" name="customer.lastName" class="form-control"
+					placeholder="Customer Last Name" th:field="*{customer.lastName}" />
+				<span th:if="${#fields.hasErrors('customer.lastName')}"
+					th:errors="*{customer.lastName}}">Customer Last Name Error</span>
+			</div>
+
+			<div class="form-group">
+				<label for="product.productName">Product</label> <input type="text"
+					name="product.productName" class="form-control"
+					placeholder="Product" th:field="*{product.productName}" /> <span
+					th:if="${#fields.hasErrors('product.productName')}"
+					th:errors="*{product.productName}}">Product Name Error</span>
+			</div>
+
+
+
+			<div class="form-group">
+				<label for="product.productPrice">Unit Price</label> <input
+					type="text" name="product.productPrice" class="form-control"
+					placeholder="Price" th:field="*{product.productPrice}" /> <span
+					th:if="${#fields.hasErrors('product.productPrice')}"
+					th:errors="*{product.productPrice}}">Product Price Error</span>
+			</div>
+
+			<div class="form-group">
+				<label for="transactionDate">Purchase Date</label> <input
+					type="text" name="transactionDate" class="form-control"
+					placeholder="Purchase Date" th:field="*{transactionDate}" /> <span
+					th:if="${#fields.hasErrors('transactionDate')}"
+					th:errors="*{transactionDate}}">Product Name Error</span>
+			</div>
+
+			<div id="back-btn">
+				<a href="/" th:href="@{|/transactions|}"><span
+					class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
+			</div>
+			<button type="submit" class="btn btn-primary">Submit</button>
+
+		</form>
+
+	</div>
+
+</body>
+</html>

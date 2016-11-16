@@ -16,5 +16,7 @@ public class IndexController {
 	public String home(Model model) {
 		return "home";
 	}
+	
+	
 
 }

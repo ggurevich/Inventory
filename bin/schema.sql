@@ -19,8 +19,8 @@ CREATE TABLE IF NOT EXISTS penultimo.customers (
   
  CREATE TABLE IF NOT EXISTS penultimo.transactions (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  customer_id VARCHAR(16) NOT NULL,
-  product_id VARCHAR(16) NOT NULL,
-  transaction_date VARCHAR(40) NOT NULL,
+  customer_id INT UNSIGNED NOT NULL,
+  product_id INT UNSIGNED NOT NULL,
+  transaction_date VARCHAR(60) NOT NULL,
   PRIMARY KEY (id));
   

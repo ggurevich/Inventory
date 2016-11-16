@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+</head>
+<body layout:fragment="content">
+
+	<div class="row">
+		<h1>Delete</h1>
+		<h3>Transaction</h3>
+		<hr />
+		<form method="POST" th:object="${transaction}"
+			enctype="multipart/form-data">
+			<input type="hidden" th:field="*{id}" />
+			<dl class="dl-horizontal" th:if="${transaction}">
+				<dt>Transaction ID #</dt>
+				<dd th:text="${transaction.id}"></dd>
+				<dt>User Name</dt>
+				<dd
+					th:text="${transaction.customer.firstName} + ' ' + ${transaction.customer.lastName}"></dd>
+				<dt>Product</dt>
+				<dd th:text="${transaction.product.productName}"></dd>
+				<dt>Price</dt>
+				<dd th:text="${transaction.product.productPrice}"></dd>
+				<dt>Purchased</dt>
+				<dd th:text="${transaction.transactionDate}"></dd>
+
+			</dl>
+			<button type="submit" class="btn btn-primary">Delete</button>
+			<div id="back-btn">
+				<a href="/" th:href="@{|/transactions|}"><span
+					class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
+			</div>
+		</form>
+	</div>
+	<div th:unless="${transaction}">
+		<h1>Product not found</h1>
+	</div>
+
+</body>
+</html>
