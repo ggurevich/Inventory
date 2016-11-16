@@ -1,0 +1,80 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>Products</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<h1>Customers</h1>
+	<a class="btn btn-success" href="/" th:href="@{|/customer/create|}" role="button">Create New Customer</a>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>First Name</th>
+				<th>Last Name</th>
+				<th>Email</th>
+				<th>Phone Number</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="c : ${customers}">
+				<td th:text="${c.firstName}"></td>
+				<td th:text="${c.lastName}"></td>
+				<td th:text="${c.email}"></td>
+				<td th:text="${c.phoneNumber}"></td>
+				<td><a class="btn btn-default" href="/" th:href="@{|/customer/${c.id}}" role="button">View</a></td>
+				<td><a class="btn btn-primary" href="/" th:href="@{|/customer/${c.id}/edit|}" role="button">Edit</a></td>
+				<td><a class="btn btn-success" href="/" th:href="@{|/customer/${c.id}/delete|}" role="button">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/">Back</a>
+</body>
+</html>
+<!-- 
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+<title>All Users List</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body layout:fragment="content">
+	<h1>Yarn Barn Inventory</h1>
+	<a class="btn btn-success" href="/" th:href="@{|/product/create|}" role="button">Create New Product</a>
+	<table class="table table-hover">
+		<thead>
+			<tr>
+				<th>SKU</th>
+				<th>Product Name</th>
+				<th>Yarn Weight</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Inventory</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+				<th>&nbsp;</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="p : ${products}">
+				<td th:text="${p.id}"></td>
+				<td th:text="${p.productName}"></td>
+				<td th:text="${p.yarnWeight}"></td>
+				<td th:text="${p.description}"></td>
+				<td th:text="${p.price}"></td>
+				<td th:text="${p.inventory}"></td>
+				<td><a class="btn btn-default" href="/" th:href="@{|/product/${p.id}}" role="button">View</a></td>
+				<td><a class="btn btn-primary" href="/" th:href="@{|/product/${p.id}/edit|}" role="button">Edit</a></td>
+				<td><a class="btn btn-success" href="/" th:href="@{|/product/${p.id}/delete|}" role="button">Delete</a></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>-->

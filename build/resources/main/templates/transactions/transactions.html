@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorator="layouts/basic">
+<head>
+</head>
+<body layout:fragment="content">
+	<div class="container">
+		<div class="row">
+			<h1>TRANSACTIONS</h1>
+<a class="btn btn-success" href="/" th:href="@{|/transaction/create|}" role="button">Create New Transaction</a>
+			<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Transaction #</th>
+					<th>Customer</th>
+					<th>Product</th>
+					<th>Price</th>
+					<th>Purchased</th>
+					<!-- <th>&nbsp;</th> -->
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="transaction : ${transactions}">
+					<td scope="row" th:text="${transaction.id}"></td>
+					<td th:text="${transaction.customer.lastName} + ', ' + ${transaction.customer.firstName}"></td>
+					<td th:text="${transaction.product.productName}"></td>
+					<td th:text="${transaction.product.productPrice}"></td>
+					<td th:text="${transaction.transactionDate}"></td>
+					<td><a class="btn btn-primary" href="/" th:href="@{|/transaction/${transaction.id}}" role="button">View</a></td>
+					<td><a class="btn btn-success" href="/" th:href="@{|/transaction/${transaction.id}/edit|}" role="button">Edit</a></td>
+					<td><a class="btn btn-info" href="/" th:href="@{|/transaction/${transaction.id}/delete/|}" role="button">Delete</a></td>
+				</tr>
+			</tbody>
+		</table>
+		
+
+
+		</div>
+	</div>
+</body>
+</html>
