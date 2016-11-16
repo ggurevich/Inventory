@@ -3,11 +3,12 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layouts/basic">
 <head>
-<title>Getting Started: Serving Web Content</title>
+<title>Penultimo Inventory Product Detail</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body layout:fragment="content">
 	<div class="row">
+	<h1>Product Details</h1>
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -30,7 +31,7 @@
 			</tbody>
 		</table>
 		<a class="btn btn-default" href="/" th:href="@{|/product/${product.id}/edit|}">Edit</a>
-		<a class="btn btn-default" href="/">Back</a>
+		<a class="btn btn-default" href="/" th:href="@{|/products|}">Back</a>
 		<div th:unless="${product}">
 			<h1>Product not found</h1>
 		</div>

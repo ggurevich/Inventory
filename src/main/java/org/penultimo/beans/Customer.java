@@ -15,13 +15,13 @@ public class Customer {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Size(max = 16)
+	@Size(max = 30)
 	private String firstName;
 
-	@Size(max = 16)
+	@Size(max = 30)
 	private String lastName;
 
-	@Size(max = 20)
+	@Size(max = 50)
 	private String email;
 
 	@Size(max = 16)

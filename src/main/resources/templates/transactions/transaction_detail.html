@@ -3,12 +3,14 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layouts/basic">
 <head>
+<title>Penultimo Inventory Transaction Details</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body layout:fragment="content">
 
 	<div class="row">
-		<h1>Details</h1>
-		<h3>Transaction</h3>
+		<h1>Transaction Details</h1>
+		
 		<hr />
 		<dl class="dl-horizontal" th:if="${transaction}">
 			<dt>Transaction ID #</dt>
@@ -27,10 +29,7 @@
 		<a th:href="@{|/transaction/${transaction.id}/edit|}"><button
 				class="btn btn-primary">Edit</button></a>
 
-		<div id="back-btn">
-			<a href="/" th:href="@{|/transactions|}"><span
-				class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
-		</div>
+		<a class="btn btn-default" href="/" th:href="@{|/transactions|}">Back</a>
 
 		<div th:unless="${transaction}">
 			<h1>Product not found</h1>

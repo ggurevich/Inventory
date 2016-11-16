@@ -3,7 +3,7 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layouts/basic">
 <head>
-<title>Penultimo Inventory</title>
+<title>Penultimo Inventory Transaction Edit</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 </head>
@@ -58,12 +58,9 @@
 					th:if="${#fields.hasErrors('transactionDate')}"
 					th:errors="*{transactionDate}}">Product Name Error</span>
 			</div>
-
-			<div id="back-btn">
-				<a href="/" th:href="@{|/transactions|}"><span
-					class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span>Back</a>
-			</div>
 			<button type="submit" class="btn btn-primary">Submit</button>
+			<a class="btn btn-default" href="/" th:href="@{|/transactions|}">Back</a>
+
 
 		</form>
 

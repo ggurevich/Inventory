@@ -15,13 +15,13 @@ public class Product {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 	
-	@Size(max = 16)
+	@Size(max = 30)
 	private String upc;
 	
-	@Size(max = 16)
+	@Size(max = 30)
 	private String productName;
 	
-	@Size(max = 16)
+	@Size(max = 30)
 	private String productManufacturer;
 
 	private double productPrice;

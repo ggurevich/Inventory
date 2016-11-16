@@ -3,14 +3,14 @@
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
 	layout:decorator="layouts/basic">
 <head>
-<title>Getting Started: Serving Web Content</title>
+<title>Penultimo Inventory Customer Detail</title>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 </head>
 <body layout:fragment="content">
 
 	<div class="row">
 		<div th:if="${customer}">
-			<h1>Customer</h1>
+			<h1>Customer Detail</h1>
 			<ul th:object="${customer}">
 				<li th:text="*{firstName}"></li>
 				<li th:text="*{lastName}"></li>
@@ -19,7 +19,7 @@
 			</ul>
 			<a class="btn btn-default" href="/"
 				th:href="@{|/customer/${customer.id}/edit|}">Edit</a> <a
-				class="btn btn-default" href="/">Back</a>
+				class="btn btn-default" href="/" th:href="@{|/customers|}">Back</a>
 		</div>
 		<div th:unless="${customer}">
 			<h1>Customer Not Found</h1>
